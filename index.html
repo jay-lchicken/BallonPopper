@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ballon Popper</title>
+    <style>body {
+        font-family: 'Party', sans-serif;
+        background-color: #f0f8ff;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    @font-face {
+        font-family: 'Party';
+        src: url('Party Time.ttf');
+    }
+
+    @keyframes floatUp {
+        0% {
+            bottom: 0;
+        }
+        100% {
+            bottom: 100%;
+            display: none;
+        }
+    }
+
+    .balloon {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 150px;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        animation: floatUp 5s linear forwards;
+    }
+
+    .balloon::after {
+        content: '';
+        width: 2px;
+        height: 50px;
+        background-color: black;
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #score {
+        display: none;
+        font-size: 3em;
+        position: absolute;
+        top: -40px;
+        right: 10px;
+        color: #333;
+    }
+
+    #thumbtack {
+        display: none;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    #header {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 2.5em;
+        color: #333;
+    }
+
+    #username {
+        display: block;
+        margin: 20px auto;
+        padding: 10px;
+        font-size: 1.2em;
+        width: 80%;
+        max-width: 300px;
+        border: 2px solid #333;
+        border-radius: 5px;
+    }
+
+    #start {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #start:hover {
+        background-color: #555;
+    }
+
+    </style>
+</head>
+<body>
+    <h1 id="header">Balloon Popper Game</h1>
+    <input id="username">
+    <button id="start">Start</button>
+    <p id="score">Score: 0</p>
+  <div class="balloon"></div>
+    <img src="195-1950288_thumbtack-png-blue-thumb-tack-angled-right-blue-push-pin-png%20Background%20Removed.png" id="thumbtack">
+
+    <script src="index.js" type="module"></script>
+</body>
+</html>
