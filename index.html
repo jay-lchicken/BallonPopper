@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Ballon Popper</title>
-    <style>body {
+    <style>
+        body {
         font-family: 'Party', sans-serif;
         background-color: #f0f8ff;
         margin: 0;
@@ -49,6 +50,7 @@
     }
 
     #score {
+        font-family: Party;
         display: none;
         font-size: 3em;
         position: absolute;
@@ -103,10 +105,25 @@
     p{
         font-family: SansSerif ;
     }
+    #pause{
+        width: auto;
+        height: auto;
+        display: block;
+        font-size: 1.2em;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        top: -40px;
+        left: 10px;
+        display: none;
+    }
 
     </style>
 </head>
 <body>
+    <button id="pause">Pause Music</button>
     <h1 id="header">Balloon Popper Game</h1>
     <input id="username">
     <button id="start">Start</button>
@@ -116,5 +133,24 @@
 
     <script src="index.js" type="module"></script>
     <p><a href="https://jay-lchicken.github.io/Leaderboard/">Leaderboard</a></p>
+    <audio id="background-music" src="puzzle-game-bright-casual-video-game-music-249202.mp3" loop autoplay></audio>
+<script>
+    document.getElementById("start").onclick = () =>{
+        document.getElementById("background-music").play();
+        document.getElementById("pause").style.display = "block";
+    }
+    document.getElementById("pause").onclick = () =>{
+        const backgroundMusic = document.getElementById("background-music");
+        if (backgroundMusic.paused) {
+            backgroundMusic.play();
+            document.getElementById("pause").innerText = "Pause Music";
+        } else {
+            backgroundMusic.pause();
+            document.getElementById("pause").innerText = "Resume Music";
+
+        }
+    }
+
+</script>
 </body>
 </html>
